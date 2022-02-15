@@ -1,33 +1,28 @@
 const RULES = {
   OFF: 'off',
   WARN: 'warn',
-  ERROR: 'error'
+  ERROR: 'error',
 }
 
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard'
-  ],
+  extends: ['plugin:react/recommended', 'standard', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'react-native'
-  ],
+  plugins: ['react', '@typescript-eslint', 'react-native', 'prettier'],
   rules: {
+    'prettier/prettier': RULES.ERROR,
     // 'no-use-before-define': RULES.OFF
-  }
+  },
 }
